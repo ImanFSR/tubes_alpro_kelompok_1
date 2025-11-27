@@ -9,18 +9,18 @@
 // 6. Kiandra Narashreya Adji Prasdhian (102042500107)
 // 7. Rafi Maulana Elfajar (102042500211)
 
-namespace TubesAlpro_Main
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-            Console.WriteLine("Selamat datang di program pengelolaan data mahasiswa.");
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine($"Ini adalah iterasi ke-{i + 1}");
-            }
-        }
-    }
-}
+// namespace TubesAlpro_Main
+// {
+//     internal class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             Console.WriteLine("Hello, World!");
+//             Console.WriteLine("Selamat datang di program pengelolaan data mahasiswa.");
+//             for (int i = 0; i < 5; i++)
+//             {
+//                 Console.WriteLine($"Ini adalah iterasi ke-{i + 1}");
+//             }
+//         }
+//     }
+// }
