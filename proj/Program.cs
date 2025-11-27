@@ -9,14 +9,13 @@
 // 6. Kiandra Narashreya Adji Prasdhian (102042500107)
 // 7. Rafi Maulana Elfajar (102042500211)
 
-// namespace TubesAlpro_Main
-// {
-//     internal class Program
-//     {
-//         static void Main(string[] args)
-//         {
-//             Console.WriteLine("Hello, World!");
-//         }
-//     }
-// }
-
+namespace TubesAlpro_Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}
