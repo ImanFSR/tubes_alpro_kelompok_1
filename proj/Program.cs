@@ -15,7 +15,12 @@ namespace TubesAlpro_Main
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Selamat datang di program pengelolaan data mahasiswa.");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"Ini adalah iterasi ke-{i + 1}");
+            }
         }
     }
 }
