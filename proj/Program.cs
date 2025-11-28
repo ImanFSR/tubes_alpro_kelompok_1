@@ -15,7 +15,9 @@ namespace TubesAlpro_Main
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine(" ===============================");
+            Console.WriteLine("|   Selamat Datang di Aplikasi  |");
+            Console.WriteLine(" ===============================");
         }
     }
 }
