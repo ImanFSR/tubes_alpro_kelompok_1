@@ -216,7 +216,6 @@ namespace TubesAlpro_DataMahasiswa
                     Console.WriteLine("Pilihan menu tidak valid.");
                     Console.ReadKey();
                 }
-                Console.WriteLine();
             }
         }
     }
