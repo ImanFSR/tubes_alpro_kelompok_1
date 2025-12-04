@@ -36,9 +36,7 @@ namespace TubesAlpro_DataMahasiswa
                 Console.WriteLine("===========================================");
                 Console.Write("Pilih menu: ");
 
-                // CARA DASAR: int.Parse
-                // Asumsi: User pinter, pasti masukin angka.
-                int pilihan = int.Parse(Console.ReadLine());
+                int pilihan = int.Parse(Console.ReadLine()!);
 
                 // CREATE
                 if (pilihan == 1)
@@ -48,15 +46,14 @@ namespace TubesAlpro_DataMahasiswa
                     if (jumlahData_0601 < 100)
                     {
                         Console.Write("Masukkan NIM : ");
-                        nim_0601[jumlahData_0601] = Console.ReadLine();
+                        nim_0601[jumlahData_0601] = Console.ReadLine()!;
 
                         Console.Write("Masukkan Nama: ");
-                        nama_0601[jumlahData_0601] = Console.ReadLine();
+                        nama_0601[jumlahData_0601] = Console.ReadLine()!;
 
                         Console.Write("Masukkan IPK : ");
                         // CARA DASAR: double.Parse
-                        ipk_0601[jumlahData_0601] = double.Parse(Console.ReadLine());
-
+                        ipk_0601[jumlahData_0601] = double.Parse(Console.ReadLine()!);
                         jumlahData_0601++;
                         Console.WriteLine("\n[Sukses] Data berhasil disimpan!");
                     }
@@ -105,7 +102,7 @@ namespace TubesAlpro_DataMahasiswa
                     else
                     {
                         Console.Write("Masukkan NIM yang akan diedit: ");
-                        string cari = Console.ReadLine();
+                        string cari = Console.ReadLine()!;
                         int index = -1;
 
                         for (int i = 0; i < jumlahData_0601; i++)
@@ -121,11 +118,11 @@ namespace TubesAlpro_DataMahasiswa
                         {
                             Console.WriteLine($"Data Ditemukan: {nama_0601[index]}");
                             Console.Write("Nama Baru : ");
-                            nama_0601[index] = Console.ReadLine();
+                            nama_0601[index] = Console.ReadLine()!;
 
                             Console.Write("IPK Baru  : ");
                             // CARA DASAR: double.Parse
-                            ipk_0601[index] = double.Parse(Console.ReadLine());
+                            ipk_0601[index] = double.Parse(Console.ReadLine()!);
                             
                             Console.WriteLine("\n[Sukses] Data berhasil diperbarui!");
                         }
@@ -151,7 +148,7 @@ namespace TubesAlpro_DataMahasiswa
                     else
                     {
                         Console.Write("Masukkan NIM yang akan dihapus: ");
-                        string cari = Console.ReadLine();
+                        string cari = Console.ReadLine()!;
                         int index = -1;
 
                         for (int i = 0; i < jumlahData_0601; i++)
