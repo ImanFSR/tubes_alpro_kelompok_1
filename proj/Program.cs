@@ -34,8 +34,9 @@ namespace TubesAlpro_DataMahasiswa
                 Console.WriteLine("4. Hapus Data (Delete)");
                 Console.WriteLine("0. Keluar");
                 Console.WriteLine("===========================================");
-                Console.Write("Pilih menu: ");
 
+                // Input Pilihan
+                Console.Write("Pilih menu: ");
                 int pilihan = int.Parse(Console.ReadLine()!);
 
                 // CREATE
@@ -52,7 +53,6 @@ namespace TubesAlpro_DataMahasiswa
                         nama_0601[jumlahData_0601] = Console.ReadLine()!;
 
                         Console.Write("Masukkan IPK : ");
-                        // CARA DASAR: double.Parse
                         ipk_0601[jumlahData_0601] = double.Parse(Console.ReadLine()!);
                         jumlahData_0601++;
                         Console.WriteLine("\n[Sukses] Data berhasil disimpan!");
