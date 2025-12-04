@@ -121,7 +121,6 @@ namespace TubesAlpro_DataMahasiswa
                             nama_0601[index] = Console.ReadLine()!;
 
                             Console.Write("IPK Baru  : ");
-                            // CARA DASAR: double.Parse
                             ipk_0601[index] = double.Parse(Console.ReadLine()!);
                             
                             Console.WriteLine("\n[Sukses] Data berhasil diperbarui!");
