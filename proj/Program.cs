@@ -25,20 +25,23 @@ namespace TubesAlpro_DataMahasiswa
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("=== APLIKASI DATA MAHASISWA ===");
+                Console.WriteLine("=== APLIKASI DATA MAHASISWA (CRUD ONLY) ===");
                 Console.WriteLine("   Kelas: SI-25-06 | Kelompok: 01");
-                Console.WriteLine("===================================");
+                Console.WriteLine("===========================================");
                 Console.WriteLine("1. Tambah Data (Create)");
                 Console.WriteLine("2. Lihat Data (Read)");
                 Console.WriteLine("3. Edit Data (Update)");
                 Console.WriteLine("4. Hapus Data (Delete)");
-                Console.WriteLine("5. Cari Data (Searching)");
-                Console.WriteLine("6. Filter IPK > 3.0 (Filtering)");
                 Console.WriteLine("0. Keluar");
-                Console.WriteLine("===================================");
+                Console.WriteLine("===========================================");
                 Console.Write("Pilih menu: ");
 
-                int pilihan = int.Parse(Console.ReadLine()!);
+                // Pake TryParse biar kalau di-enter kosong gak error
+                string inputPilihan = Console.ReadLine();
+                int pilihan;
+                bool isAngka = int.TryParse(inputPilihan, out pilihan);
+
+                if (!isAngka) pilihan = -1; // Kalau input ngaco, anggep invalid
 
                 // CREATE
                 if (pilihan == 1)
@@ -48,21 +51,28 @@ namespace TubesAlpro_DataMahasiswa
                     if (jumlahData_0601 < 100)
                     {
                         Console.Write("Masukkan NIM : ");
-                        nim_0601[jumlahData_0601] = Console.ReadLine()!;
+                        nim_0601[jumlahData_0601] = Console.ReadLine();
 
                         Console.Write("Masukkan Nama: ");
-                        nama_0601[jumlahData_0601] = Console.ReadLine()!;
+                        nama_0601[jumlahData_0601] = Console.ReadLine();
 
                         Console.Write("Masukkan IPK : ");
-                        ipk_0601[jumlahData_0601] = double.Parse(Console.ReadLine()!);
-
-                        jumlahData_0601++;
-                        Console.WriteLine("Data berhasil disimpan!");
+                        // Pakai double.TryParse biar aman kalau salah input IPK
+                        double ipkInput;
+                        if(double.TryParse(Console.ReadLine(), out ipkInput)){
+                            ipk_0601[jumlahData_0601] = ipkInput;
+                            jumlahData_0601++;
+                            Console.WriteLine("\n[Sukses] Data berhasil disimpan!");
+                        } else {
+                            Console.WriteLine("\n[Gagal] IPK harus berupa angka!");
+                        }
                     }
                     else
                     {
                         Console.WriteLine("Penyimpanan Penuh!");
                     }
+                    
+                    Console.Write("\nTekan ENTER untuk kembali ke menu...");
                     Console.ReadKey();
                 }
 
@@ -77,14 +87,16 @@ namespace TubesAlpro_DataMahasiswa
                     }
                     else
                     {
-                        Console.WriteLine($"{ "No",-5}{ "NIM",-15}{ "Nama",-30}{ "IPK",-5}");
-                        Console.WriteLine("-----------------------------------------------------------------------");
+                        Console.WriteLine($"{"No",-5}{"NIM",-15}{"Nama",-30}{"IPK",-5}");
+                        Console.WriteLine("-------------------------------------------------------");
 
                         for (int i = 0; i < jumlahData_0601; i++)
                         {
-                            Console.WriteLine($"{ (i+1),-5}{ nim_0601[i],-15}{ nama_0601[i],-30}{ ipk_0601[i],-5}");
+                            Console.WriteLine($"{(i + 1),-5}{nim_0601[i],-15}{nama_0601[i],-30}{ipk_0601[i],-5}");
                         }
                     }
+                    
+                    Console.Write("\nTekan ENTER untuk kembali ke menu...");
                     Console.ReadKey();
                 }
 
@@ -100,7 +112,7 @@ namespace TubesAlpro_DataMahasiswa
                     else
                     {
                         Console.Write("Masukkan NIM yang akan diedit: ");
-                        string cari = Console.ReadLine()!;
+                        string cari = Console.ReadLine();
                         int index = -1;
 
                         for (int i = 0; i < jumlahData_0601; i++)
@@ -114,19 +126,26 @@ namespace TubesAlpro_DataMahasiswa
 
                         if (index != -1)
                         {
+                            Console.WriteLine($"Data Ditemukan: {nama_0601[index]}");
                             Console.Write("Nama Baru : ");
-                            nama_0601[index] = Console.ReadLine()!;
+                            nama_0601[index] = Console.ReadLine();
 
                             Console.Write("IPK Baru  : ");
-                            ipk_0601[index] = double.Parse(Console.ReadLine()!);
-
-                            Console.WriteLine("Data berhasil diperbarui!");
+                            double ipkBaru;
+                            if(double.TryParse(Console.ReadLine(), out ipkBaru)){
+                                ipk_0601[index] = ipkBaru;
+                                Console.WriteLine("\n[Sukses] Data berhasil diperbarui!");
+                            } else {
+                                Console.WriteLine("\n[Gagal] Update batal, IPK harus angka.");
+                            }
                         }
                         else
                         {
                             Console.WriteLine("NIM tidak ditemukan.");
                         }
                     }
+                    
+                    Console.Write("\nTekan ENTER untuk kembali ke menu...");
                     Console.ReadKey();
                 }
 
@@ -142,7 +161,7 @@ namespace TubesAlpro_DataMahasiswa
                     else
                     {
                         Console.Write("Masukkan NIM yang akan dihapus: ");
-                        string cari = Console.ReadLine()!;
+                        string cari = Console.ReadLine();
                         int index = -1;
 
                         for (int i = 0; i < jumlahData_0601; i++)
@@ -156,6 +175,7 @@ namespace TubesAlpro_DataMahasiswa
 
                         if (index != -1)
                         {
+                            Console.WriteLine($"Menghapus data: {nama_0601[index]}...");
                             for (int j = index; j < jumlahData_0601 - 1; j++)
                             {
                                 nim_0601[j] = nim_0601[j + 1];
@@ -164,66 +184,18 @@ namespace TubesAlpro_DataMahasiswa
                             }
 
                             jumlahData_0601--;
-                            Console.WriteLine("Data berhasil dihapus!");
+                            Console.WriteLine("\n[Sukses] Data berhasil dihapus!");
                         }
                         else
                         {
                             Console.WriteLine("NIM tidak ditemukan.");
                         }
                     }
+                    
+                    Console.Write("\nTekan ENTER untuk kembali ke menu...");
                     Console.ReadKey();
                 }
 
-                // SEARCHING
-                else if (pilihan == 5)
-                {
-                    Console.WriteLine("\n-- Cari Data Mahasiswa --");
-
-                    if (jumlahData_0601 == 0)
-                    {
-                        Console.WriteLine("Data kosong.");
-                    }
-                    else
-                    {
-                        Console.Write("Masukkan Keyword (NIM/ Nama): ");
-                        string keyword = Console.ReadLine()!;
-                        bool ditemukan = false;
-
-                        for (int i = 0; i < jumlahData_0601; i++)
-                        {
-                            if (nim_0601[i].Contains(keyword) || nama_0601[i].Contains(keyword))
-                            {
-                                Console.WriteLine($"- {nama_0601[i]} ({nim_0601[i]})");
-                                ditemukan = true;
-                            }
-                        }
-
-                        if (!ditemukan)
-                            Console.WriteLine("Data tidak ditemukan.");
-                    }
-                    Console.ReadKey();
-                }
-
-                // FILTERING
-                else if (pilihan == 6)
-                {
-                    Console.WriteLine("\n-- Filter Mahasiswa (IPK > 3.0) --");
-
-                    bool ada = false;
-                    for (int i = 0; i < jumlahData_0601; i++)
-                    {
-                        if (ipk_0601[i] > 3.0)
-                        {
-                            Console.WriteLine($"- {nama_0601[i]} (IPK: {ipk_0601[i]})");
-                            ada = true;
-                        }
-                    }
-
-                    if (!ada)
-                        Console.WriteLine("Tidak ada mahasiswa dengan IPK > 3.0.");
-
-                    Console.ReadKey();
-                }
                 // EXIT
                 else if (pilihan == 0)
                 {
@@ -234,6 +206,7 @@ namespace TubesAlpro_DataMahasiswa
                 else
                 {
                     Console.WriteLine("Pilihan tidak valid.");
+                    Console.Write("\nTekan ENTER untuk kembali ke menu...");
                     Console.ReadKey();
                 }
             }
