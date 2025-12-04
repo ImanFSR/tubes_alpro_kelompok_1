@@ -36,12 +36,9 @@ namespace TubesAlpro_DataMahasiswa
                 Console.WriteLine("===========================================");
                 Console.Write("Pilih menu: ");
 
-                // Pake TryParse biar kalau di-enter kosong gak error
-                string inputPilihan = Console.ReadLine();
-                int pilihan;
-                bool isAngka = int.TryParse(inputPilihan, out pilihan);
-
-                if (!isAngka) pilihan = -1; // Kalau input ngaco, anggep invalid
+                // CARA DASAR: int.Parse
+                // Asumsi: User pinter, pasti masukin angka.
+                int pilihan = int.Parse(Console.ReadLine());
 
                 // CREATE
                 if (pilihan == 1)
@@ -57,15 +54,11 @@ namespace TubesAlpro_DataMahasiswa
                         nama_0601[jumlahData_0601] = Console.ReadLine();
 
                         Console.Write("Masukkan IPK : ");
-                        // Pakai double.TryParse biar aman kalau salah input IPK
-                        double ipkInput;
-                        if(double.TryParse(Console.ReadLine(), out ipkInput)){
-                            ipk_0601[jumlahData_0601] = ipkInput;
-                            jumlahData_0601++;
-                            Console.WriteLine("\n[Sukses] Data berhasil disimpan!");
-                        } else {
-                            Console.WriteLine("\n[Gagal] IPK harus berupa angka!");
-                        }
+                        // CARA DASAR: double.Parse
+                        ipk_0601[jumlahData_0601] = double.Parse(Console.ReadLine());
+
+                        jumlahData_0601++;
+                        Console.WriteLine("\n[Sukses] Data berhasil disimpan!");
                     }
                     else
                     {
@@ -131,13 +124,10 @@ namespace TubesAlpro_DataMahasiswa
                             nama_0601[index] = Console.ReadLine();
 
                             Console.Write("IPK Baru  : ");
-                            double ipkBaru;
-                            if(double.TryParse(Console.ReadLine(), out ipkBaru)){
-                                ipk_0601[index] = ipkBaru;
-                                Console.WriteLine("\n[Sukses] Data berhasil diperbarui!");
-                            } else {
-                                Console.WriteLine("\n[Gagal] Update batal, IPK harus angka.");
-                            }
+                            // CARA DASAR: double.Parse
+                            ipk_0601[index] = double.Parse(Console.ReadLine());
+                            
+                            Console.WriteLine("\n[Sukses] Data berhasil diperbarui!");
                         }
                         else
                         {
