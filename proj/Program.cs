@@ -36,9 +36,8 @@ namespace TubesAlpro_DataMahasiswa
                 Console.WriteLine("6. Filter IPK > 3.0 (Filtering)");
                 Console.WriteLine("0. Keluar");
                 Console.WriteLine("===================================");
-                Console.Write("Pilih menu: ");
 
-                // Pake int.Parse biasa (Back to basic)
+                Console.Write("Pilih menu: ");
                 int pilihan = int.Parse(Console.ReadLine()!);
 
                 // CREATE
