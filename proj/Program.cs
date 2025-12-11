@@ -40,8 +40,7 @@ namespace TubesAlpro_DataMahasiswa
                 Console.Write("Pilih menu: ");
                 int pilihan = int.Parse(Console.ReadLine()!);
 
-                // CREATE
-                if (pilihan == 1)
+                if (pilihan == 1) // CREATE
                 {
                     Console.WriteLine("\n-- Tambah Data Baru --");
 
@@ -67,8 +66,7 @@ namespace TubesAlpro_DataMahasiswa
                     Console.ReadKey();
                 }
 
-                // READ
-                else if (pilihan == 2)
+                else if (pilihan == 2) // READ
                 {
                     Console.WriteLine("\n-- Daftar Semua Mahasiswa --");
 
@@ -89,9 +87,8 @@ namespace TubesAlpro_DataMahasiswa
                     Console.Write("\nTekan ENTER untuk kembali ke menu...");
                     Console.ReadKey();
                 }
-
-                // UPDATE
-                else if (pilihan == 3)
+                
+                else if (pilihan == 3) // UPDATE
                 {
                     Console.WriteLine("\n-- Edit Data Mahasiswa --");
 
@@ -134,8 +131,7 @@ namespace TubesAlpro_DataMahasiswa
                     Console.ReadKey();
                 }
 
-                // DELETE
-                else if (pilihan == 4)
+                else if (pilihan == 4) // DELETE
                 {
                     Console.WriteLine("\n-- Hapus Data Mahasiswa --");
 
@@ -180,8 +176,7 @@ namespace TubesAlpro_DataMahasiswa
                     Console.ReadKey();
                 }
 
-                // SEARCHING
-                else if (pilihan == 5)
+                else if (pilihan == 5) // SEARCHING
                 {
                     Console.WriteLine("\n-- Cari Data Mahasiswa --");
 
@@ -212,8 +207,7 @@ namespace TubesAlpro_DataMahasiswa
                     Console.ReadKey();
                 }
 
-                // FILTERING (IPK > 3.0)
-                else if (pilihan == 6)
+                else if (pilihan == 6) // FILTERING (IPK > 3.0)
                 {
                     Console.WriteLine("\n-- Filter Mahasiswa (IPK > 3.0) --");
 
@@ -240,8 +234,7 @@ namespace TubesAlpro_DataMahasiswa
                     Console.ReadKey();
                 }
 
-                // EXIT
-                else if (pilihan == 0)
+                else if (pilihan == 0) // EXIT 
                 {
                     Console.WriteLine("Terima kasih telah menggunakan aplikasi ini.");
                     break;
