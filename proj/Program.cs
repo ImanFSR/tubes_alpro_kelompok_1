@@ -70,7 +70,7 @@ namespace TubesAlpro_DataMahasiswa
                             }
                             nim_0601[jumlahData_0601] = inputNIM_0601;
                         }
-                        catch
+                        catch (FormatException)
                         {
                             Console.WriteLine("[Gagal] NIM harus berupa angka!");
                             Console.Write("\nTekan ENTER untuk kembali ke menu...");
@@ -86,7 +86,7 @@ namespace TubesAlpro_DataMahasiswa
                         {
                             ipk_0601[jumlahData_0601] = double.Parse(Console.ReadLine()!);
                         }
-                        catch
+                        catch (FormatException)
                         {
                             Console.WriteLine("[Gagal] IPK harus berupa angka!");
                             Console.Write("\nTekan ENTER untuk kembali ke menu...");
@@ -168,7 +168,7 @@ namespace TubesAlpro_DataMahasiswa
                             {
                                 subMenu_0601 = int.Parse(Console.ReadLine()!);
                             }
-                            catch
+                            catch (FormatException)
                             {
                                 Console.WriteLine("\n[Gagal] Pilihan harus berupa ANGKA (1-3)!");
                                 Console.Write("\nTekan ENTER untuk kembali ke menu...");
@@ -214,7 +214,7 @@ namespace TubesAlpro_DataMahasiswa
                                     ipk_0601[index_0601] = double.Parse(Console.ReadLine()!);
                                     Console.WriteLine("\n[Sukses] IPK berhasil diperbarui!");
                                 }
-                                catch
+                                catch (FormatException)
                                 {
                                     Console.WriteLine("\n[Gagal] IPK harus berupa angka!");
                                 }
@@ -311,26 +311,67 @@ namespace TubesAlpro_DataMahasiswa
 
                 else if (pilihan_0601 == 6) // FILTERING (IPK > 3.0)
                 {
-                    Console.WriteLine("\n-- Filter Mahasiswa (IPK > 3.0) --");
-
+                    Console.WriteLine("\n-- Filter Data Mahasiswa --");
                     if (jumlahData_0601 == 0)
                     {
                         Console.WriteLine("Data kosong.");
                     }
                     else
                     {
-                        bool ada_0601 = false;
-                        for (int i = 0; i < jumlahData_0601; i++)
+                        Console.WriteLine("Pilih Kategori Filter:");
+                        Console.WriteLine("1. IPK >= 3.0 (Standar)");
+                        Console.WriteLine("2. IPK >= 3.5 (Cumlaude)");
+                        Console.WriteLine("3. Input Batas IPK Manual");
+                        Console.Write("Pilih (1-3): ");
+
+                        double batasIPK = 0;
+                        bool valid = true;
+
+                        try
                         {
-                            if (ipk_0601[i] > 3.0)
+                            int subMenu = int.Parse(Console.ReadLine()!);
+
+                            if (subMenu == 1)
                             {
-                                Console.WriteLine($"- {nama_0601[i]} (IPK: {ipk_0601[i]})");
-                                ada_0601 = true;
+                                batasIPK = 3.0;
+                            }
+                            else if (subMenu == 2)
+                            {
+                                batasIPK = 3.5;
+                            }
+                            else if (subMenu == 3)
+                            {
+                                Console.Write("Masukkan Batas Minimum IPK: ");
+                                batasIPK = double.Parse(Console.ReadLine()!);
+                            }
+                            else
+                            {
+                                Console.WriteLine("[Gagal] Pilihan tidak valid.");
+                                valid = false;
+                            }
+
+                            if (valid)
+                            {
+                                Console.WriteLine($"\n-- Hasil Filter IPK >= {batasIPK} --");
+                                bool ada_0601 = false;
+
+                                for (int i = 0; i < jumlahData_0601; i++)
+                                {
+                                    if (ipk_0601[i] >= batasIPK)
+                                    {
+                                        Console.WriteLine($"- {nama_0601[i]} (IPK: {ipk_0601[i]})");
+                                        ada_0601 = true;
+                                    }
+                                }
+
+                                if (!ada_0601)
+                                    Console.WriteLine($"Tidak ada mahasiswa dengan IPK >= {batasIPK}.");
                             }
                         }
-
-                        if (!ada_0601)
-                            Console.WriteLine("Tidak ada mahasiswa dengan IPK > 3.0.");
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("[Gagal] Input harus berupa angka!");
+                        }
                     }
                     Console.Write("\nTekan ENTER untuk kembali ke menu...");
                     Console.ReadKey();
