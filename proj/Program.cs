@@ -10,8 +10,6 @@
 // 7. Fathuriza Rahman                  (102042530031)
 
 using System;
-
-
 class Program
 {
     static string[] nim_0601 = new string[100];
