@@ -57,7 +57,7 @@ class Program
 
             else if (pilihan_0601 == 0)                 // EXIT
             {
-                Console.WriteLine("erima kasih telah menggunakan aplikasi ini.");
+                Console.WriteLine("Terima kasih telah menggunakan aplikasi ini.");
                 break;
             }
 
@@ -145,6 +145,7 @@ class Program
         if (jumlahData_0601 == 0)
         {
             Console.WriteLine("Data kosong.");
+            Console.Write("\nTekan ENTER untuk kembali ke menu...");
             Console.ReadKey();
             return;
         }
