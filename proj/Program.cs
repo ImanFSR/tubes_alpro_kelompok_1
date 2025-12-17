@@ -35,7 +35,7 @@ class Program
             Console.WriteLine("===================================");
 
             Console.Write("Pilih menu: ");
-            int pilihan_0601 = 0;
+            int pilihan_0601;
             try
             {
                 pilihan_0601 = int.Parse(Console.ReadLine()!);
@@ -55,7 +55,7 @@ class Program
             else if (pilihan_0601 == 5) CariData_0601();     // SEARCHING
             else if (pilihan_0601 == 6) FilterData_0601();   // FILTERING
 
-            else if (pilihan_0601 == 0)                 // EXIT
+            else if (pilihan_0601 == 0)                      // EXIT
             {
                 Console.WriteLine("Terima kasih telah menggunakan aplikasi ini.");
                 break;
@@ -176,7 +176,7 @@ class Program
             Console.WriteLine("3. IPK");
             Console.Write("Pilih (1-3): ");
 
-            int subMenu_0601 = 0;
+            int subMenu_0601;
             try
             {
                 subMenu_0601 = int.Parse(Console.ReadLine()!);
@@ -318,6 +318,7 @@ class Program
                 Console.WriteLine($"IPK : {ipk_0601[index_0601]}");
                 Console.WriteLine("-----------------------------");
             }
+
             else
             {
                 Console.WriteLine("Data tidak ditemukan. Silahkan cek kembali input Anda.");
