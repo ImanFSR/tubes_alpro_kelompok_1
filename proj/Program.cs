@@ -287,7 +287,7 @@ class Program
         }
     }
 
-    static void CariData_0601() // SEARCHING
+    static void CariData() // SEARCHING
     {
         Console.WriteLine("\n-- Cari Data Mahasiswa --");
 
@@ -295,18 +295,18 @@ class Program
         {
             Console.WriteLine("Data kosong.");
         }
-
         else
         {
-            Console.Write("Masukkan NIM atau Nama (Harus sama persis): ");
+            Console.Write("Masukkan Keyword (NIM/Nama): ");
             string keyword_0601 = Console.ReadLine()!;
             int index_0601 = -1;
+
             for (int i = 0; i < jumlahData_0601; i++)
             {
-                if (nim_0601[i] == keyword_0601 || nama_0601[i] == keyword_0601)
+                if (nim_0601[i].Contains(keyword_0601) || nama_0601[i].Contains(keyword_0601))
                 {
                     index_0601 = i;
-                    break;
+                    break; 
                 }
             }
 
@@ -318,7 +318,6 @@ class Program
                 Console.WriteLine($"IPK : {ipk_0601[index_0601]}");
                 Console.WriteLine("-----------------------------");
             }
-
             else
             {
                 Console.WriteLine("Data tidak ditemukan. Silahkan cek kembali input Anda.");
