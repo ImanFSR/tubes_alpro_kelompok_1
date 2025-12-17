@@ -22,7 +22,7 @@ class Program
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("=== APLIKASI DATA MAHASISWA ===");
+            Console.WriteLine("=== APLIKASI DATA IPK MAHASISWA ===");
             Console.WriteLine("   Kelas: SI-25-06 | Kelompok: 01");
             Console.WriteLine("===================================");
             Console.WriteLine("1. Tambah Data (Create)");
@@ -53,21 +53,14 @@ class Program
                 Console.WriteLine("\n-- Tambah Data Baru --");
                 if (jumlahData_0601 < 100)
                 {
-                    Console.Write("Masukkan NIM : ");
-                    string inputNIM_0601 = Console.ReadLine()!;
+                    Console.Write("Masukkan NIM: ");
                     try // Input NIM harus berupa angka
                     {
-
-                        for (int i = 0; i < inputNIM_0601.Length; i++)
-                        {
-                            if (inputNIM_0601[i] < '0' || inputNIM_0601[i] > '9')
-                            {
-                                throw new Exception();
-                            }
-                        }
+                        string inputNIM_0601 = Console.ReadLine()!;
+                        Convert.ToInt64(inputNIM_0601);
                         nim_0601[jumlahData_0601] = inputNIM_0601;
                     }
-                    catch (FormatException)
+                    catch (Exception)
                     {
                         Console.WriteLine("[Gagal] NIM harus berupa angka!");
                         Console.Write("\nTekan ENTER untuk kembali ke menu...");
@@ -94,6 +87,7 @@ class Program
                     jumlahData_0601++;
                     Console.WriteLine("\n[Sukses] Data berhasil disimpan!");
                 }
+
                 else
                 {
                     Console.WriteLine("Penyimpanan penuh!");
@@ -176,33 +170,26 @@ class Program
                         if (subMenu_0601 == 1) // GANTI NIM
                         {
                             Console.Write("Masukkan NIM Baru: ");
-                            string nimBaru_0601 = Console.ReadLine()!;
-                            bool nimValid_0601 = true;
-                            for (int i = 0; i < nimBaru_0601.Length; i++)
+                            try
                             {
-                                if (nimBaru_0601[i] < '0' || nimBaru_0601[i] > '9')
-                                {
-                                    nimValid_0601 = false;
-                                    break;
-                                }
-                            }
-
-                            if (nimValid_0601)
-                            {
+                                string nimBaru_0601 = Console.ReadLine()!;
+                                Convert.ToInt64(nimBaru_0601);
                                 nim_0601[index_0601] = nimBaru_0601;
                                 Console.WriteLine("\n[Sukses] NIM berhasil diperbarui!");
                             }
-                            else
+                            catch (Exception)
                             {
                                 Console.WriteLine("\n[Gagal] NIM harus berupa angka!");
                             }
                         }
+
                         else if (subMenu_0601 == 2) // GANTI NAMA
                         {
                             Console.Write("Masukkan Nama Baru: ");
                             nama_0601[index_0601] = Console.ReadLine()!;
                             Console.WriteLine("\n[Sukses] Nama berhasil diperbarui!");
                         }
+
                         else if (subMenu_0601 == 3) // GANTI IPK
                         {
                             Console.Write("Masukkan IPK Baru: ");
@@ -216,11 +203,13 @@ class Program
                                 Console.WriteLine("\n[Gagal] IPK harus berupa angka!");
                             }
                         }
+
                         else
                         {
                             Console.WriteLine("\n[Gagal] Pilihan tidak valid (Pilih 1, 2, atau 3).");
                         }
                     }
+
                     else
                     {
                         Console.WriteLine("NIM tidak ditemukan.");
@@ -233,7 +222,6 @@ class Program
             else if (pilihan_0601 == 4) // DELETE
             {
                 Console.WriteLine("\n-- Hapus Data Mahasiswa --");
-
                 if (jumlahData_0601 == 0)
                 {
                     Console.WriteLine("Data kosong.");
@@ -294,13 +282,16 @@ class Program
                     {
                         if (nim_0601[i] == keyword_0601 || nama_0601[i] == keyword_0601)
                         {
-                            Console.WriteLine($"- {nama_0601[i]} ({nim_0601[i]})");
+                            Console.WriteLine($"Nama: {nama_0601[i]}");
+                            Console.WriteLine($"NIM: {nim_0601[i]}");
+                            Console.WriteLine($"IPK: {ipk_0601[i]}");
+                            Console.WriteLine("-------------------------");
                             ditemukan_0601 = true;
                         }
                     }
 
                     if (!ditemukan_0601)
-                        Console.WriteLine("Data tidak ditemukan (Cek huruf besar/kecil).");
+                        Console.WriteLine("Data tidak ditemukan! Silahkan cek kembali input Anda.");
                 }
                 Console.Write("\nTekan ENTER untuk kembali ke menu...");
                 Console.ReadKey();
