@@ -287,7 +287,7 @@ class Program
         }
     }
 
-    static void CariData() // SEARCHING
+    static void CariData_0601() // SEARCHING
     {
         Console.WriteLine("\n-- Cari Data Mahasiswa --");
 
@@ -351,7 +351,6 @@ class Program
             try
             {
                 int subMenu = int.Parse(Console.ReadLine()!);
-
                 if (subMenu == 1)
                 {
                     batasIPK = 3.0;
@@ -385,7 +384,9 @@ class Program
                         }
                     }
                     if (!ada_0601)
+                    {
                         Console.WriteLine($"Tidak ada mahasiswa dengan IPK >= {batasIPK}.");
+                    }
                 }
             }
             catch (FormatException)
