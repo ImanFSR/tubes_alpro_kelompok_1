@@ -323,7 +323,7 @@ class Program
 
                     double batasIPK = 0;
                     bool valid = true;
-                    
+
                     try
                     {
                         int subMenu = int.Parse(Console.ReadLine()!);
@@ -365,7 +365,7 @@ class Program
                                 Console.WriteLine($"Tidak ada mahasiswa dengan IPK >= {batasIPK}.");
                         }
                     }
-                    catch
+                    catch (FormatException)
                     {
                         Console.WriteLine("[Gagal] Input harus berupa angka!");
                     }
