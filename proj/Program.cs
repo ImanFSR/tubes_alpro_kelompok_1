@@ -79,9 +79,19 @@ class Program
             Console.Write("Masukkan NIM: ");
             try // Input NIM harus berupa angka
             {
-                string inputNIM = Console.ReadLine()!;
-                Convert.ToInt64(inputNIM);
-                nim_0601[jumlahData_0601] = inputNIM;
+                string inputNIM_0601 = Console.ReadLine()!;
+                Convert.ToInt64(inputNIM_0601);
+                for (int i = 0; i < jumlahData_0601; i++)
+                {
+                    if (nim_0601[i] == inputNIM_0601)
+                    {
+                        Console.WriteLine($"[Gagal] NIM {inputNIM_0601} sudah terdaftar!");
+                        Console.Write("\nTekan ENTER untuk kembali...");
+                        Console.ReadKey();
+                        return;
+                    }
+                }
+                nim_0601[jumlahData_0601] = inputNIM_0601;
             }
             catch (Exception)
             {
@@ -92,12 +102,24 @@ class Program
             }
 
             Console.Write("Masukkan Nama: ");
-            nama_0601[jumlahData_0601] = Console.ReadLine()!;
+            string inputNama_0601 = Console.ReadLine()!.ToUpper();
+            for (int i = 0; i < jumlahData_0601; i++)
+            {
+                if (nama_0601[i] == inputNama_0601)
+                {
+                    Console.WriteLine($"[Gagal] Nama '{inputNama_0601}' sudah ada di data!");
+                    Console.Write("\nTekan ENTER untuk kembali...");
+                    Console.ReadKey();
+                    return;
+                }
+            }
+            nama_0601[jumlahData_0601] = inputNama_0601;
 
             Console.Write("Masukkan IPK : ");
             try // Input IPK harus berupa angka
             {
-                ipk_0601[jumlahData_0601] = double.Parse(Console.ReadLine()!);
+                double inputIPK_0601 = double.Parse(Console.ReadLine()!);
+                ipk_0601[jumlahData_0601] = inputIPK_0601;
             }
             catch (FormatException)
             {
@@ -189,14 +211,34 @@ class Program
                 return;
             }
 
-            if (subMenu_0601 == 1) // Ganti NIM
+            if (subMenu_0601 == 1) // GANTI NIM
             {
                 Console.Write("Masukkan NIM Baru: ");
                 try
                 {
-                    string nimbaru_0601 = Console.ReadLine()!;
-                    Convert.ToInt64(nimbaru_0601);
-                    nim_0601[index_0601] = nimbaru_0601;
+                    string nimBaru_0601 = Console.ReadLine()!;
+                    Convert.ToInt64(nimBaru_0601); // Cek angka
+                    if (nimBaru_0601 != nim_0601[index_0601])
+                    {
+                        bool adaDuplikat_0601 = false;
+                        for (int i = 0; i < jumlahData_0601; i++)
+                        {
+                            if (nim_0601[i] == nimBaru_0601)
+                            {
+                                adaDuplikat_0601 = true;
+                                break;
+                            }
+                        }
+
+                        if (adaDuplikat_0601)
+                        {
+                            Console.WriteLine($"[Gagal] NIM {nimBaru_0601} sudah dipakai orang lain!");
+                            Console.ReadKey();
+                            return;
+                        }
+                    }
+
+                    nim_0601[index_0601] = nimBaru_0601;
                     Console.WriteLine("[Sukses] NIM diperbarui.");
                 }
                 catch (Exception)
@@ -306,7 +348,7 @@ class Program
                 if (nim_0601[i].Contains(keyword_0601) || nama_0601[i].Contains(keyword_0601))
                 {
                     index_0601 = i;
-                    break; 
+                    break;
                 }
             }
 
