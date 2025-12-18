@@ -16,7 +16,6 @@ class Program
     static string[] nama_0601 = new string[100];
     static double[] ipk_0601 = new double[100];
     static int jumlahData_0601 = 0;
-
     static void Main(string[] args)
     {
         while (true)
@@ -46,20 +45,17 @@ class Program
                 Console.ReadKey();
                 continue;
             }
-
             if (pilihan_0601 == 1) TambahData();        // CREATE
             else if (pilihan_0601 == 2) LihatData();    // READ
             else if (pilihan_0601 == 3) EditData();     // UPDATE
             else if (pilihan_0601 == 4) HapusData();    // DELETE
             else if (pilihan_0601 == 5) CariData();     // SEARCHING
             else if (pilihan_0601 == 6) FilterData();   // FILTERING
-
-            else if (pilihan_0601 == 0)                      // EXIT
+            else if (pilihan_0601 == 0)                 // EXIT
             {
                 Console.WriteLine("Terima kasih telah menggunakan aplikasi ini.");
                 break;
             }
-
             else
             {
                 Console.WriteLine("Pilihan tidak valid.");
