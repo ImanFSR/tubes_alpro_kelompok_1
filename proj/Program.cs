@@ -459,7 +459,6 @@ class Program
                 return;
             }
 
-            // Eksekusi Filter
             if (valid)
             {
                 Console.WriteLine($"\n-- Hasil Filter IPK >= {batasIPK} --");
