@@ -399,23 +399,22 @@ class Program
             return;
         }
 
-        // --- MASUK LOOPING SUB-MENU ---
         while (true)
         {
-            Console.Clear(); // Bersihin layar tiap kali ngulang
+            Console.Clear();
             Console.WriteLine("=== FILTER DATA MAHASISWA ===");
             Console.WriteLine("Pilih Kategori Filter:");
             Console.WriteLine("1. IPK >= 3.0 (Standar)");
             Console.WriteLine("2. IPK >= 3.5 (Cumlaude)");
             Console.WriteLine("3. Input Batas IPK Manual");
-            Console.WriteLine("4. Kembali ke Menu Utama"); // <-- MENU EXIT
+            Console.WriteLine("4. Kembali ke Menu Utama");
             Console.WriteLine("=============================");
             Console.Write("Pilih (1-4): ");
 
-            int subMenu = 0;
+            int subMenu_0601;
             try
             {
-                subMenu = int.Parse(Console.ReadLine()!);
+                subMenu_0601 = int.Parse(Console.ReadLine()!);
             }
             catch (FormatException)
             {
@@ -425,7 +424,7 @@ class Program
             }
 
             // --- LOGIKA KELUAR (Pilihan 4) ---
-            if (subMenu == 4)
+            if (subMenu_0601 == 4)
             {
                 return; // KELUAR dari method ini, balik ke Main Menu
             }
@@ -434,15 +433,15 @@ class Program
             double batasIPK = 0;
             bool valid = true;
 
-            if (subMenu == 1)
+            if (subMenu_0601 == 1)
             {
                 batasIPK = 3.0;
             }
-            else if (subMenu == 2)
+            else if (subMenu_0601 == 2)
             {
                 batasIPK = 3.5;
             }
-            else if (subMenu == 3)
+            else if (subMenu_0601 == 3)
             {
                 Console.Write("Masukkan Batas Minimum IPK: ");
                 try
