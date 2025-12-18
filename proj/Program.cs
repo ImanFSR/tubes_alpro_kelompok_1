@@ -413,7 +413,7 @@ class Program
                     valid_0601 = false;
                 }
             }
-            if (subMenu_0601 == 4)
+            else if (subMenu_0601 == 4)
             {
                 return;
             }
