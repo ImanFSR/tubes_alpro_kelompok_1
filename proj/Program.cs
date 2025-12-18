@@ -440,7 +440,6 @@ class Program
                         ada_0601 = true;
                     }
                 }
-
                 if (!ada_0601)
                 {
                     Console.WriteLine($"Tidak ada mahasiswa dengan IPK >= {batasIPK}.");
