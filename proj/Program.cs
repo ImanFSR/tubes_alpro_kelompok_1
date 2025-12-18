@@ -234,16 +234,16 @@ class Program
                 string namaBaru_0601 = Console.ReadLine()!.ToUpper();
                 if (namaBaru_0601 != nama_0601[index_0601])
                 {
-                    bool adaDuplikat = false;
+                    bool adaDuplikat_0601 = false;
                     for (int i = 0; i < jumlahData_0601; i++)
                     {
                         if (nama_0601[i] == namaBaru_0601)
                         {
-                            adaDuplikat = true;
+                            adaDuplikat_0601 = true;
                             break;
                         }
                     }
-                    if (adaDuplikat)
+                    if (adaDuplikat_0601)
                     {
                         Console.WriteLine($"[Gagal] Nama '{namaBaru_0601}' sudah ada!");
                         Console.ReadKey();
