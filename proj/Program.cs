@@ -453,7 +453,7 @@ class Program
                 Console.WriteLine("[Gagal] Pilihan tidak valid (1-4).");
                 valid = false;
             }
-            
+
             if (subMenu_0601 == 4)
             {
                 return;
@@ -480,10 +480,8 @@ class Program
                 }
             }
 
-            // Pause dulu biar user bisa baca
             Console.WriteLine("\nTekan ENTER untuk filter lagi...");
             Console.ReadKey();
-            // Setelah tekan ENTER, dia bakal loop lagi ke atas (Console.Clear)
         }
     }
 }
