@@ -420,16 +420,10 @@ class Program
             {
                 Console.WriteLine("[Gagal] Pilihan harus angka!");
                 Console.ReadKey();
-                continue; // Ulang loop dari atas
+                continue;
             }
 
-            // --- LOGIKA KELUAR (Pilihan 4) ---
-            if (subMenu_0601 == 4)
-            {
-                return; // KELUAR dari method ini, balik ke Main Menu
-            }
 
-            // --- LOGIKA FILTER (Pilihan 1-3) ---
             double batasIPK = 0;
             bool valid = true;
 
@@ -458,6 +452,11 @@ class Program
             {
                 Console.WriteLine("[Gagal] Pilihan tidak valid (1-4).");
                 valid = false;
+            }
+            
+            if (subMenu_0601 == 4)
+            {
+                return;
             }
 
             // Eksekusi Filter
