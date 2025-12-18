@@ -268,8 +268,8 @@ class Program
                         return;
                     }
                 }
-                Console.WriteLine("[Sukses] Nama diperbarui.");
                 nama_0601[index_0601] = namaBaru_0601;
+                Console.WriteLine("[Sukses] Nama diperbarui.");
             }
 
             else if (subMenu_0601 == 3) // Ganti IPK
