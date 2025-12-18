@@ -362,9 +362,8 @@ class Program
         Console.Write("\nTekan ENTER untuk kembali ke menu...");
         Console.ReadKey();
     }
-    static void FilterData() // FILTERING (Versi Loop Sub-Menu)
+    static void FilterData() // FILTERING
     {
-        // Cek dulu data kosong apa nggak
         if (jumlahData_0601 == 0)
         {
             Console.WriteLine("\n-- Filter Data Mahasiswa --");
@@ -395,46 +394,46 @@ class Program
                 Console.ReadKey();
                 continue;
             }
-            double batasIPK = 0;
-            bool valid = true;
+            double batasIPK_0601 = 0;
+            bool valid_0601 = true;
             if (subMenu_0601 == 1)
             {
-                batasIPK = 3.0;
+                batasIPK_0601 = 3.0;
             }
             else if (subMenu_0601 == 2)
             {
-                batasIPK = 3.5;
+                batasIPK_0601 = 3.5;
             }
             else if (subMenu_0601 == 3)
             {
                 Console.Write("Masukkan Batas Minimum IPK: ");
                 try
                 {
-                    batasIPK = double.Parse(Console.ReadLine()!);
+                    batasIPK_0601 = double.Parse(Console.ReadLine()!);
                 }
                 catch
                 {
                     Console.WriteLine("[Gagal] Input IPK harus angka!");
-                    valid = false;
+                    valid_0601 = false;
                 }
-            }
-            else
-            {
-                Console.WriteLine("[Gagal] Pilihan tidak valid (1-4).");
-                valid = false;
             }
             if (subMenu_0601 == 4)
             {
                 return;
             }
-            if (valid)
+            else
             {
-                Console.WriteLine($"\n-- Hasil Filter IPK >= {batasIPK} --");
+                Console.WriteLine("[Gagal] Pilihan tidak valid (1-4).");
+                valid_0601 = false;
+            }
+            if (valid_0601)
+            {
+                Console.WriteLine($"\n-- Hasil Filter IPK >= {batasIPK_0601} --");
                 bool ada_0601 = false;
 
                 for (int i = 0; i < jumlahData_0601; i++)
                 {
-                    if (ipk_0601[i] >= batasIPK)
+                    if (ipk_0601[i] >= batasIPK_0601)
                     {
                         Console.WriteLine($"- {nama_0601[i]} (IPK: {ipk_0601[i]})");
                         ada_0601 = true;
@@ -442,7 +441,7 @@ class Program
                 }
                 if (!ada_0601)
                 {
-                    Console.WriteLine($"Tidak ada mahasiswa dengan IPK >= {batasIPK}.");
+                    Console.WriteLine($"Tidak ada mahasiswa dengan IPK >= {batasIPK_0601}.");
                 }
             }
             Console.WriteLine("\nTekan ENTER untuk filter lagi...");
