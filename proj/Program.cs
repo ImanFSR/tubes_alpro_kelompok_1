@@ -229,15 +229,14 @@ class Program
                                 break;
                             }
                         }
-
                         if (adaDuplikat_0601)
                         {
                             Console.WriteLine($"[Gagal] NIM {nimBaru_0601} sudah dipakai orang lain!");
+                            Console.Write("\nTekan ENTER untuk kembali ke menu...");
                             Console.ReadKey();
                             return;
                         }
                     }
-
                     nim_0601[index_0601] = nimBaru_0601;
                     Console.WriteLine("[Sukses] NIM diperbarui.");
                 }
@@ -250,8 +249,27 @@ class Program
             else if (subMenu_0601 == 2) // Ganti Nama
             {
                 Console.Write("Masukkan Nama Baru: ");
-                nama_0601[index_0601] = Console.ReadLine()!;
+                string namaBaru_0601 = Console.ReadLine()!.ToUpper();
+                if (namaBaru_0601 != nama_0601[index_0601])
+                {
+                    bool adaDuplikat = false;
+                    for (int i = 0; i < jumlahData_0601; i++)
+                    {
+                        if (nama_0601[i] == namaBaru_0601)
+                        {
+                            adaDuplikat = true;
+                            break;
+                        }
+                    }
+                    if (adaDuplikat)
+                    {
+                        Console.WriteLine($"[Gagal] Nama '{namaBaru_0601}' sudah ada!");
+                        Console.ReadKey();
+                        return;
+                    }
+                }
                 Console.WriteLine("[Sukses] Nama diperbarui.");
+                nama_0601[index_0601] = namaBaru_0601;
             }
 
             else if (subMenu_0601 == 3) // Ganti IPK
