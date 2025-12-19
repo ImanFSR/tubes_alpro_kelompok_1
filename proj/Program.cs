@@ -206,13 +206,13 @@ class Program
                         bool adaDuplikat_0601 = false;
                         for (int i = 0; i < jumlahData_0601; i++) // Cek duplikat NIM
                         {
-                            if (nim_0601[i] == nimBaru_0601)
+                            if (nim_0601[i] == nimBaru_0601) // Jika ada duplikat NIM
                             {
                                 adaDuplikat_0601 = true;
                                 break;
                             }
                         }
-                        if (adaDuplikat_0601) // Jika ada duplikat NIM
+                        if (adaDuplikat_0601)
                         {
                             Console.WriteLine($"[Gagal] NIM {nimBaru_0601} sudah dipakai orang lain!");
                             Console.Write("\nTekan ENTER untuk kembali ke menu...");
@@ -235,9 +235,9 @@ class Program
                 if (namaBaru_0601 != nama_0601[index_0601])
                 {
                     bool adaDuplikat_0601 = false;
-                    for (int i = 0; i < jumlahData_0601; i++)
+                    for (int i = 0; i < jumlahData_0601; i++) // Cek duplikat nama
                     {
-                        if (nama_0601[i] == namaBaru_0601)
+                        if (nama_0601[i] == namaBaru_0601) // Jika ada duplikat nama
                         {
                             adaDuplikat_0601 = true;
                             break;
