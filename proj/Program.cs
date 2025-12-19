@@ -202,11 +202,11 @@ class Program
                     try
                     {
                         string nimBaru_0601 = Console.ReadLine()!;
-                        Convert.ToInt64(nimBaru_0601); // Cek angka
-                        if (nimBaru_0601 != nim_0601[index_0601])
+                        Convert.ToInt64(nimBaru_0601);
+                        if (nimBaru_0601 != nim_0601[index_0601]) 
                         {
                             bool adaDuplikat_0601 = false;
-                            for (int i = 0; i < jumlahData_0601; i++)
+                            for (int i = 0; i < jumlahData_0601; i++) // Cek duplikat NIM
                             {
                                 if (nim_0601[i] == nimBaru_0601)
                                 {
@@ -214,7 +214,7 @@ class Program
                                     break;
                                 }
                             }
-                            if (adaDuplikat_0601)
+                            if (adaDuplikat_0601) // Jika ada duplikat NIM
                             {
                                 Console.WriteLine($"[Gagal] NIM {nimBaru_0601} sudah dipakai orang lain!");
                                 Console.Write("\nTekan ENTER untuk kembali ke menu...");
