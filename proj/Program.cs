@@ -426,7 +426,6 @@ class Program
             {
                 Console.WriteLine($"\n-- Hasil Filter IPK >= {batasIPK_0601} --");
                 bool ada_0601 = false;
-
                 for (int i = 0; i < jumlahData_0601; i++)
                 {
                     if (ipk_0601[i] >= batasIPK_0601)
