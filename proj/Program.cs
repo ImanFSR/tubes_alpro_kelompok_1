@@ -159,18 +159,18 @@ class Program
             Console.ReadKey();
             return;
         }
-        Console.Write("Masukkan NIM yang ingin diubah: "); // Cari NIM
+        Console.Write("Masukkan NIM yang ingin diubah: "); 
         string cari_0601 = Console.ReadLine()!;
         int index_0601 = -1;
-        for (int i = 0; i < jumlahData_0601; i++)
+        for (int i = 0; i < jumlahData_0601; i++) // Mencari NIM
         {
-            if (nim_0601[i] == cari_0601)
+            if (nim_0601[i] == cari_0601) // Jika NIM ditemukan
             {
                 index_0601 = i;
                 break;
             }
         }
-        if (index_0601 != -1) // Jika NIM ditemukan
+        if (index_0601 != -1)
         {
             Console.WriteLine($"\n[Data Ditemukan]");
             Console.WriteLine($"NIM : {nim_0601[index_0601]}");
@@ -183,7 +183,7 @@ class Program
             Console.WriteLine("3. IPK");
             Console.Write("Pilih (1-3): ");
             int subMenu_0601;
-            try
+            try // Input pilihan harus berupa angka
             {
                 subMenu_0601 = int.Parse(Console.ReadLine()!);
             }
@@ -220,7 +220,7 @@ class Program
                             return;
                         }
                     }
-                    nim_0601[index_0601] = nimBaru_0601;
+                    nim_0601[index_0601] = nimBaru_0601; // Update NIM
                     Console.WriteLine("[Sukses] NIM diperbarui.");
                 }
                 catch (Exception)
@@ -250,7 +250,7 @@ class Program
                         return;
                     }
                 }
-                nama_0601[index_0601] = namaBaru_0601;
+                nama_0601[index_0601] = namaBaru_0601; // Update Nama
                 Console.WriteLine("[Sukses] Nama diperbarui.");
             }
             else if (subMenu_0601 == 3) // Ganti IPK
@@ -258,7 +258,8 @@ class Program
                 Console.Write("Masukkan IPK Baru: ");
                 try
                 {
-                    ipk_0601[index_0601] = double.Parse(Console.ReadLine()!);
+                    double ipkBaru_0601 = double.Parse(Console.ReadLine()!);
+                    ipk_0601[index_0601] = ipkBaru_0601; // Update IPK
                     Console.WriteLine("[Sukses] IPK diperbarui.");
                 }
                 catch (FormatException)
