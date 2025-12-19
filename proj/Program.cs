@@ -24,17 +24,17 @@ class Program
             Console.WriteLine("=== APLIKASI DATA IPK MAHASISWA ===");
             Console.WriteLine("   Kelas: SI-25-06 | Kelompok: 01");
             Console.WriteLine("===================================");
-            Console.WriteLine("1. Tambah Data (Create)");
-            Console.WriteLine("2. Lihat Data (Read)");
-            Console.WriteLine("3. Edit Data (Update)");
-            Console.WriteLine("4. Hapus Data (Delete)");
-            Console.WriteLine("5. Cari Data (Searching)");
-            Console.WriteLine("6. Filter IPK > 3.0 (Filtering)");
+            Console.WriteLine("1. Tambah Data   (Create)");
+            Console.WriteLine("2. Lihat Data    (Read)");
+            Console.WriteLine("3. Edit Data     (Update)");
+            Console.WriteLine("4. Hapus Data    (Delete)");
+            Console.WriteLine("5. Cari Data     (Searching)");
+            Console.WriteLine("6. Filter IPK    (Filtering)");
             Console.WriteLine("0. Keluar");
             Console.WriteLine("===================================");
             Console.Write("Pilih menu: ");
             int pilihan_0601;
-            try
+            try // Input pilihan harus berupa angka
             {
                 pilihan_0601 = int.Parse(Console.ReadLine()!);
             }
@@ -387,6 +387,7 @@ class Program
             catch (FormatException)
             {
                 Console.WriteLine("[Gagal] Pilihan harus angka!");
+                Console.Write("\nTekan ENTER untuk kembali...");
                 Console.ReadKey();
                 continue;
             }
