@@ -333,10 +333,9 @@ class Program
         Console.Write("Masukkan Keyword (NIM/Nama): ");
         string keyword_0601 = Console.ReadLine()!;
         int index_0601 = -1;
-
         for (int i = 0; i < jumlahData_0601; i++)
         {
-            if (nim_0601[i].Contains(keyword_0601) || nama_0601[i].Contains(keyword_0601))
+            if (nim_0601[i].Contains(keyword_0601) || nama_0601[i].Contains(keyword_0601)) // Cari NIM atau Nama
             {
                 index_0601 = i;
                 break;
