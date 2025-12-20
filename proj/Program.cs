@@ -293,7 +293,6 @@ class Program
         Console.Write("\nTekan ENTER untuk kembali ke menu...");
         Console.ReadKey();
     }
-
     static void HapusData() // DELETE
     {
         Console.WriteLine("\n-- Hapus Data Mahasiswa --");
