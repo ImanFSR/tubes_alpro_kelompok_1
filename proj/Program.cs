@@ -361,10 +361,16 @@ class Program
             Console.WriteLine($"NIM : {nim_0601[index_0601]}");
             Console.WriteLine($"IPK : {ipk_0601[index_0601]}");
             Console.WriteLine("-----------------------------");
+            Console.Write("\nTekan ENTER untuk kembali ke menu...");
+            Console.ReadKey();
+            return;
         }
         else
         {
             Console.WriteLine("Data tidak ditemukan. Silahkan cek kembali input Anda.");
+            Console.Write("\nTekan ENTER untuk kembali ke menu...");
+            Console.ReadKey();
+            return;
         }
     }
     static void FilterData() // FILTERING
