@@ -111,6 +111,13 @@ class Program
             try // Input IPK harus berupa angka
             {
                 double inputIPK_0601 = double.Parse(Console.ReadLine()!);
+                if (inputIPK_0601 < 0.0 || inputIPK_0601 > 4.0)
+                {
+                    Console.WriteLine("[Gagal] IPK harus antara 0.00 - 4.00!");
+                    Console.Write("\nTekan ENTER untuk kembali ke menu...");
+                    Console.ReadKey();
+                    return;
+                }
                 ipk_0601[jumlahData_0601] = inputIPK_0601;
             }
             catch (FormatException)
@@ -159,7 +166,7 @@ class Program
             Console.ReadKey();
             return;
         }
-        Console.Write("Masukkan NIM yang ingin diubah: "); 
+        Console.Write("Masukkan NIM yang ingin diubah: ");
         string cari_0601 = Console.ReadLine()!;
         int index_0601 = -1;
         for (int i = 0; i < jumlahData_0601; i++) // Mencari NIM
