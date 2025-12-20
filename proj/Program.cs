@@ -327,7 +327,6 @@ class Program
             if (nim_0601[i].Contains(keyword_0601) || nama_0601[i].Contains(keyword_0601))
             {
                 Console.WriteLine($"{(i + 1),-5}{nim_0601[i],-15}{nama_0601[i],-30}{ipk_0601[i],-5}");
-
                 ditemukan_0601 = true;
             }
         }
