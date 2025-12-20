@@ -96,16 +96,6 @@ class Program
             }
             Console.Write("Masukkan Nama: ");
             string inputNama_0601 = Console.ReadLine()!.ToUpper();
-            for (int i = 0; i < jumlahData_0601; i++) // Cek duplikat nama
-            {
-                if (nama_0601[i] == inputNama_0601) // Jika ada duplikat
-                {
-                    Console.WriteLine($"[Gagal] Nama '{inputNama_0601}' sudah terdaftar!");
-                    Console.Write("\nTekan ENTER untuk kembali ke menu...");
-                    Console.ReadKey();
-                    return;
-                }
-            }
             nama_0601[jumlahData_0601] = inputNama_0601;
             Console.Write("Masukkan IPK : ");
             try // Input IPK harus berupa angka
@@ -239,24 +229,6 @@ class Program
             {
                 Console.Write("Masukkan Nama Baru: ");
                 string namaBaru_0601 = Console.ReadLine()!.ToUpper();
-                if (namaBaru_0601 != nama_0601[index_0601])
-                {
-                    bool adaDuplikat_0601 = false;
-                    for (int i = 0; i < jumlahData_0601; i++) // Cek duplikat nama
-                    {
-                        if (nama_0601[i] == namaBaru_0601) // Jika ada duplikat nama
-                        {
-                            adaDuplikat_0601 = true;
-                            break;
-                        }
-                    }
-                    if (adaDuplikat_0601)
-                    {
-                        Console.WriteLine($"[Gagal] Nama '{namaBaru_0601}' sudah ada!");
-                        Console.ReadKey();
-                        return;
-                    }
-                }
                 nama_0601[index_0601] = namaBaru_0601; // Update Nama
                 Console.WriteLine("[Sukses] Nama diperbarui.");
             }
