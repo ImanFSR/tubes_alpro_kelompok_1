@@ -243,7 +243,7 @@ class Program
                         Console.WriteLine("[Gagal] IPK harus antara 0.00 - 4.00!");
                         Console.Write("\nTekan ENTER untuk kembali ke menu...");
                         Console.ReadKey();
-                        return; 
+                        return;
                     }
                     ipk_0601[index_0601] = ipkBaru_0601; // Update IPK
                     Console.WriteLine("[Sukses] IPK diperbarui.");
@@ -317,33 +317,27 @@ class Program
         }
         Console.Write("Masukkan Keyword (NIM/Nama): ");
         string keyword_0601 = Console.ReadLine()!;
-        int index_0601 = -1;
+        Console.WriteLine("\n[Hasil Pencarian]");
+        Console.WriteLine("-------------------------------------------------------");
+        Console.WriteLine($"{"No",-5}{"NIM",-15}{"Nama",-30}{"IPK",-5}");
+        Console.WriteLine("-------------------------------------------------------");
+        bool ditemukan_0601 = false;
         for (int i = 0; i < jumlahData_0601; i++)
         {
-            if (nim_0601[i].Contains(keyword_0601) || nama_0601[i].Contains(keyword_0601)) // Cari NIM atau Nama
+            if (nim_0601[i].Contains(keyword_0601) || nama_0601[i].Contains(keyword_0601))
             {
-                index_0601 = i;
-                break;
+                Console.WriteLine($"{(i + 1),-5}{nim_0601[i],-15}{nama_0601[i],-30}{ipk_0601[i],-5}");
+
+                ditemukan_0601 = true;
             }
         }
-        if (index_0601 != -1)
+        Console.WriteLine("-------------------------------------------------------");
+        if (!ditemukan_0601)
         {
-            Console.WriteLine("\n[Data Ditemukan]");
-            Console.WriteLine($"Nama: {nama_0601[index_0601]}");
-            Console.WriteLine($"NIM : {nim_0601[index_0601]}");
-            Console.WriteLine($"IPK : {ipk_0601[index_0601]}");
-            Console.WriteLine("-----------------------------");
-            Console.Write("\nTekan ENTER untuk kembali ke menu...");
-            Console.ReadKey();
-            return;
+            Console.WriteLine($"Tidak ada data yang cocok dengan keyword '{keyword_0601}'.");
         }
-        else
-        {
-            Console.WriteLine("Data tidak ditemukan. Silahkan cek kembali input Anda.");
-            Console.Write("\nTekan ENTER untuk kembali ke menu...");
-            Console.ReadKey();
-            return;
-        }
+        Console.Write("\nTekan ENTER untuk kembali ke menu...");
+        Console.ReadKey();
     }
     static void FilterData() // FILTERING
     {
