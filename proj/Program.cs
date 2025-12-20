@@ -266,6 +266,13 @@ class Program
                 try
                 {
                     double ipkBaru_0601 = double.Parse(Console.ReadLine()!);
+                    if (ipkBaru_0601 < 0.0 || ipkBaru_0601 > 4.0)
+                    {
+                        Console.WriteLine("[Gagal] IPK harus antara 0.00 - 4.00!");
+                        Console.Write("\nTekan ENTER untuk kembali ke menu...");
+                        Console.ReadKey();
+                        return; 
+                    }
                     ipk_0601[index_0601] = ipkBaru_0601; // Update IPK
                     Console.WriteLine("[Sukses] IPK diperbarui.");
                 }
