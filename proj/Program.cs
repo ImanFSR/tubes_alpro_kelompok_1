@@ -155,12 +155,22 @@ class Program
             Console.ReadKey();
             return;
         }
-        Console.Write("Masukkan NIM yang ingin diubah: ");
-        long cari_0601 = long.Parse(Console.ReadLine()!);
-        int index_0601 = -1;
-        for (int i = 0; i < jumlahData_0601; i++) // Mencari NIM
+        long cari_0601;
+        try
         {
-            if (nim_0601[i] == cari_0601) // Jika NIM ditemukan
+            cari_0601 = long.Parse(Console.ReadLine()!);
+        }
+        catch
+        {
+            Console.WriteLine("[Gagal] NIM harus angka.");
+            Console.Write("\nTekan ENTER untuk kembali ke menu...");
+            Console.ReadKey();
+            return;
+        }
+        int index_0601 = -1;
+        for (int i = 0; i < jumlahData_0601; i++)
+        {
+            if (nim_0601[i] == cari_0601)
             {
                 index_0601 = i;
                 break;
@@ -273,8 +283,18 @@ class Program
             Console.ReadKey();
             return;
         }
-        Console.Write("Masukkan NIM yang akan dihapus: ");
-        long cari_0601 = long.Parse(Console.ReadLine()!);
+        long cari_0601;
+        try
+        {
+            cari_0601 = long.Parse(Console.ReadLine()!);
+        }
+        catch
+        {
+            Console.WriteLine("[Gagal] NIM harus angka.");
+            Console.Write("\nTekan ENTER untuk kembali ke menu...");
+            Console.ReadKey();
+            return;
+        }
         int index_0601 = -1;
         for (int i = 0; i < jumlahData_0601; i++)
         {
