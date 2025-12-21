@@ -314,7 +314,7 @@ class Program
             return;
         }
         Console.Write("Masukkan Keyword (NIM/Nama): ");
-        long keyword_0601 = long.Parse(Console.ReadLine()!);
+        string keyword_0601 = Console.ReadLine()!;
         Console.WriteLine("\n[Hasil Pencarian]");
         Console.WriteLine("-------------------------------------------------------");
         Console.WriteLine($"{"No",-5}{"NIM",-15}{"Nama",-30}{"IPK",-5}");
@@ -322,7 +322,7 @@ class Program
         bool ditemukan_0601 = false;
         for (int i = 0; i < jumlahData_0601; i++)
         {
-            if (nim_0601[i] == keyword_0601 || nama_0601[i].Contains(keyword_0601.ToString()))
+            if (nim_0601[i].ToString() == keyword_0601 || nama_0601[i].Contains(keyword_0601.ToUpper()))
             {
                 Console.WriteLine($"{(i + 1),-5}{nim_0601[i],-15}{nama_0601[i],-30}{ipk_0601[i],-5}");
                 ditemukan_0601 = true;
