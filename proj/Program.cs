@@ -322,7 +322,7 @@ class Program
         bool ditemukan_0601 = false;
         for (int i = 0; i < jumlahData_0601; i++)
         {
-            if (nim_0601[i].ToString() == keyword_0601 || nama_0601[i].Contains(keyword_0601.ToUpper()))
+            if (nim_0601[i].ToString().Contains(keyword_0601) || nama_0601[i].Contains(keyword_0601.ToUpper()))
             {
                 Console.WriteLine($"{(i + 1),-5}{nim_0601[i],-15}{nama_0601[i],-30}{ipk_0601[i],-5}");
                 ditemukan_0601 = true;
