@@ -155,6 +155,7 @@ class Program
             Console.ReadKey();
             return;
         }
+        Console.Write("Masukkan NIM yang ingin diubah: ");
         long cari_0601;
         try
         {
@@ -283,6 +284,7 @@ class Program
             Console.ReadKey();
             return;
         }
+        Console.Write("Masukkan NIM yang ingin dihapus: ");
         long cari_0601;
         try
         {
