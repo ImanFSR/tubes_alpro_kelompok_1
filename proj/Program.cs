@@ -12,7 +12,7 @@
 using System;
 class Program
 {
-    static string[] nim_0601 = new string[100];
+    static long[] nim_0601 = new long[100];
     static string[] nama_0601 = new string[100];
     static double[] ipk_0601 = new double[100];
     static int jumlahData_0601 = 0;
@@ -73,8 +73,7 @@ class Program
             Console.Write("Masukkan NIM: ");
             try // Input NIM harus berupa angka
             {
-                string inputNIM_0601 = Console.ReadLine()!;
-                Convert.ToInt64(inputNIM_0601);
+                long inputNIM_0601 = long.Parse(Console.ReadLine()!);
                 for (int i = 0; i < jumlahData_0601; i++) // Cek duplikat NIM
                 {
                     if (nim_0601[i] == inputNIM_0601) // Jika ada duplikat
@@ -157,7 +156,7 @@ class Program
             return;
         }
         Console.Write("Masukkan NIM yang ingin diubah: ");
-        string cari_0601 = Console.ReadLine()!;
+        long cari_0601 = long.Parse(Console.ReadLine()!);
         int index_0601 = -1;
         for (int i = 0; i < jumlahData_0601; i++) // Mencari NIM
         {
@@ -196,8 +195,7 @@ class Program
                 Console.Write("Masukkan NIM Baru: ");
                 try
                 {
-                    string nimBaru_0601 = Console.ReadLine()!;
-                    Convert.ToInt64(nimBaru_0601);
+                    long nimBaru_0601 = long.Parse(Console.ReadLine()!);
                     if (nimBaru_0601 != nim_0601[index_0601])
                     {
                         bool adaDuplikat_0601 = false;
@@ -276,7 +274,7 @@ class Program
             return;
         }
         Console.Write("Masukkan NIM yang akan dihapus: ");
-        string cari_0601 = Console.ReadLine()!;
+        long cari_0601 = long.Parse(Console.ReadLine()!);
         int index_0601 = -1;
         for (int i = 0; i < jumlahData_0601; i++)
         {
@@ -316,7 +314,7 @@ class Program
             return;
         }
         Console.Write("Masukkan Keyword (NIM/Nama): ");
-        string keyword_0601 = Console.ReadLine()!;
+        long keyword_0601 = long.Parse(Console.ReadLine()!);
         Console.WriteLine("\n[Hasil Pencarian]");
         Console.WriteLine("-------------------------------------------------------");
         Console.WriteLine($"{"No",-5}{"NIM",-15}{"Nama",-30}{"IPK",-5}");
@@ -324,7 +322,7 @@ class Program
         bool ditemukan_0601 = false;
         for (int i = 0; i < jumlahData_0601; i++)
         {
-            if (nim_0601[i].Contains(keyword_0601) || nama_0601[i].Contains(keyword_0601))
+            if (nim_0601[i] == keyword_0601 || nama_0601[i].Contains(keyword_0601.ToString()))
             {
                 Console.WriteLine($"{(i + 1),-5}{nim_0601[i],-15}{nama_0601[i],-30}{ipk_0601[i],-5}");
                 ditemukan_0601 = true;
