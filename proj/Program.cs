@@ -132,17 +132,17 @@ class Program
         if (jumlahData_0601 == 0)
         {
             Console.WriteLine("Data masih kosong.");
+            Console.Write("\nTekan ENTER untuk kembali ke menu...");
+            Console.ReadKey();
+            return;
         }
-        else
+        Console.WriteLine($"{"No",-5}{"NIM",-15}{"Nama",-30}{"IPK",-5}"); // Header tabel
+        Console.WriteLine("-------------------------------------------------------");
+        for (int i = 0; i < jumlahData_0601; i++) // Menampilkan data
         {
-            Console.WriteLine($"{"No",-5}{"NIM",-15}{"Nama",-30}{"IPK",-5}"); // Header tabel
-            Console.WriteLine("-------------------------------------------------------");
-            for (int i = 0; i < jumlahData_0601; i++) // Menampilkan data
-            {
-                Console.WriteLine($"{(i + 1),-5}{nim_0601[i],-15}{nama_0601[i],-30}{ipk_0601[i],-5}");
-            }
+            Console.WriteLine($"{(i + 1),-5}{nim_0601[i],-15}{nama_0601[i],-30}{ipk_0601[i],-5}");
         }
-        Console.Write("\nTekan ENTER untuk kembali ke menu...");
+        Console.WriteLine("Tekan ENTER untuk kembali ke menu...");
         Console.ReadKey();
     }
     static void EditData() // UPDATE
